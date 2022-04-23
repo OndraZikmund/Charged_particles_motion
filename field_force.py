@@ -42,7 +42,10 @@ class Field_force:
 
         
         return Vector(Lorentz_force,3)
-    
+   
+
+# Test
+
 position= Vector([0,0,0],3)
 velocity = Vector([0,0,1],3)
 acceleration= Vector([0,0,-9.8],3)
