@@ -25,16 +25,14 @@ class Integrator:
         
         return position, velocity
 
-# =============================================================================
-# 
-# Test
-# 
-# position= Vector([1,1,1],3)
-# velocity = Vector([1,1,1],3)
-# acceleration= Vector([1,1,1],3)
-# 
-# dt = 0.1
-# 
-# change_position = Integrator.Euler(position, velocity, acceleration,dt)
-# print(change_position)
-# =============================================================================
+
+#Test
+
+position= Vector([1,1,1],3)
+velocity = Vector([1,1,1],3)
+acceleration= Vector([1,1,1],3)
+
+dt = 0.1
+
+change_position = Integrator.Euler(position, velocity, acceleration,dt)
+print(change_position)

@@ -22,7 +22,7 @@ class Vector:
         
         for i in range(self.dimension):
             
-            value = self.vector[i]+another_vector[i]
+            value = self.vector[i]+another_vector.vector[i]
             vector_addition.append(value)
         
         return vector_addition
@@ -36,11 +36,11 @@ class Vector:
             value = self.vector[i]*scalar
             vector_mult_scal.append(value)
         
-        return vector_mult_scal
+        return Vector(vector_mult_scal,self.dimension)
     
     def multiplication_vector(self, vA):
         
-        vecteurB = [vA[1]*self.vector[2]-vA[2]*self.vector[1], vA[2]*self.vector[0]-vA[0]*self.vector[2],vA[0]*self.vector[1]-vA[1]*self.vector[0]]
+        vecteurB = [vA.vector[1]*self.vector[2]-vA.vector[2]*self.vector[1], vA.vector[2]*self.vector[0]-vA.vector[0]*self.vector[2],vA.vector[0]*self.vector[1]-vA.vector[1]*self.vector[0]]
         
         return vecteurB
     
@@ -62,14 +62,22 @@ class Vector:
 #Tests
 
 
-a = Vector([1,2,3],3)
-b = [2,1,2]
-
-c = a.addition(b)
-d = a.multiplication_scalar(5)
-e = a.multiplication_vector(b)
-f = a.norme_vector()
-
+# =============================================================================
+# a = Vector([1,2,3],3)
+# b = Vector([2,1,2],3)
+# c = Vector([0,0,0],3)
+# 
+# c = a.addition(b)
+# print(c)
+# =============================================================================
+# =============================================================================
+# c = a.addition(b)
+# d = a.multiplication_scalar(5)
+#e = a.multiplication_vector(b)
+#print(e)
+# f = a.norme_vector()
+# 
+# =============================================================================
 
 
 

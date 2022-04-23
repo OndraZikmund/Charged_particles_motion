@@ -29,7 +29,6 @@ for w in range(10):
     
     z.append(Integrator.Euler(position,velocity,acceleration,dt)[0][2])
 
-print(z)
 T = [t*dt for t in range(10)]
 
 plt.plot(T,z)
