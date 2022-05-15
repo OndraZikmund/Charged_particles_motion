@@ -23,12 +23,12 @@ dt = 0.1
 
 z = []
 
-for w in range(10):
+for w in range(100):
     position = Vector(Integrator.Euler(position,velocity,acceleration,dt)[0],3)
     velocity = Vector(Integrator.Euler(position,velocity,acceleration,dt)[1],3)
     
     z.append(Integrator.Euler(position,velocity,acceleration,dt)[0][2])
 
-T = [t*dt for t in range(10)]
+T = [t*dt for t in range(100)]
 
 plt.plot(T,z)

@@ -17,13 +17,16 @@ class Integrator:
 
     def Euler(position,velocity,acceleration, dt):
         
-        change_position = velocity.multiplication_scalar(dt)
-        change_velocity = acceleration.multiplication_scalar(dt)
         
+        change_velocity = acceleration.multiplication_scalar(dt)
+        change_position = velocity.multiplication_scalar(dt)
         position = position.addition(change_position)
         velocity = velocity.addition(change_velocity)
         
+        
         return position, velocity
+    
+
 
 
 #Test
