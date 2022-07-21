@@ -4,7 +4,6 @@ Created on Fri Apr  1 01:34:23 2022
 
 @author: Uzivatel
 """
-
 import os
 os.chdir('c:\\Users\\Uzivatel\Desktop\Plasma')
 
@@ -58,6 +57,35 @@ class Vector:
 
         return norme
         
+
+    def interface():
+        
+        position = Vector([0,0,0],3)
+    
+        x = input("Zadejte počáteční pozici x ")
+        y = input("Zadejte počáteční pozici y ")
+        z = input("Zadejte počáteční pozici z ")
+    
+        x = int(x)
+        y = int(y)
+        z = int(z)
+        position= Vector([x,y,z],3)
+    
+    
+        vx = input("Zadejte počáteční rychlost x ")
+        vy = input("Zadejte počáteční rychlost y ")
+        vz = input("Zadejte počáteční rychlost z ")
+    
+        vx = int(vx)
+        vy = int(vy)
+        vz = int(vz)
+    
+        velocity = Vector([vx,vy,vz],3)
+        
+        mass = input("Určete hmotnost částice ")
+        mass = int(mass)
+        
+        return position, velocity, mass
         
 #Tests
 
