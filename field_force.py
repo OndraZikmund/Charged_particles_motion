@@ -4,7 +4,6 @@ Created on Sat Apr 23 20:02:04 2022
 
 @author: Uzivatel
 """
-
 import os
 import math
 os.chdir('c:\\Users\\Uzivatel\Desktop\Plasma')
@@ -15,28 +14,24 @@ from Integrator import Integrator
 
 class Field_force:
     
-    def __init__(self, dimension, charge, B , E, G, directionG):
-        self.charge = charge
-        self.B =B
+    def __init__(self, dimension,B,E):
+        
         self.dimension = dimension
+        self.B = B
         self.E = E
-
-        self.directionG = directionG
-        self.G = G
         
 
+# =============================================================================
+#         self.directionG = directionG
+#         self.G = G
+# =============================================================================
         
-
     
-    def homogenous_magnetic_force(self,velocity):  # B, direction and velocity are vectors. Charge is scalar (+ or -)
+    def homogenous_magnetic_force(self,velocity, charge):  # B, direction and velocity are vectors. Charge is scalar (+ or -)
         
-        B_x = self.B[0]
-        B_y = self.B[1]
-        B_z = self.B[2]
+        Magnetic_field = self.B
         
-        Magnetic_field = Vector([B_x,B_y,B_z],3)
-        
-        Magnetic_field = Magnetic_field.multiplication_scalar(self.charge)
+        Magnetic_field = Magnetic_field.multiplication_scalar(charge) 
 
         Lorentz_force = Vector([0,0,0],3)
         
@@ -45,17 +40,13 @@ class Field_force:
         
         return Vector(Lorentz_force,3)
     
-    def homogenous_electric_force(self):
+    def homogenous_electric_force(self, charge):
         
         
-        E_x = self.E[0]
-        E_y = self.E[1]
-        E_z = self.E[2]
-        
-        Electric_field = Vector([E_x,E_y,E_z],3)
+        Electric_field = self.E
 
         Lorentz_force = Vector([0,0,0],3)
-        Electric_force = Electric_field.multiplication_scalar(self.charge)
+        Electric_force = Electric_field.multiplication_scalar(charge)
 
         return Vector(Electric_force,3)
     
@@ -79,11 +70,13 @@ class Field_force:
 
         return Vector(Gravity_force,3)
     
-    def E_B_drift(self, mass,velocity):
+    def E_B_drift(self, mass,velocity, charge):
         
-        Lorentz_force = self.homogenous_magnetic_force(velocity)
+        Lorentz_force = self.homogenous_magnetic_force(velocity, charge)
         acceleration = Lorentz_force.multiplication_scalar(1/mass)
-        acceleration = acceleration.addition(self.homogenous_electric_force().vector)
+        acceleration = acceleration.addition(self.homogenous_electric_force(charge).vector)
         acceleration = Vector(acceleration,3)
         
         return acceleration
+        
+        
