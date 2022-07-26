@@ -50,26 +50,6 @@ class Field_force:
 
         return Vector(Electric_force,3)
     
-    def homogenous_gravity_force(self,mass):
-        
-        G_x = 0
-        G_y = 0
-        G_z = 0
-        
-        direction = self.directionG
-        if (direction==1):
-            G_x = self.G
-        if (direction==2):
-            E_G = self.G
-        if (direction==3):
-            E_G = self.G
-        Gravity_field = Vector([G_x,G_y,G_z],3)
-
-        Lorentz_force = Vector([0,0,0],3)
-        Gravity_force = Gravity_field.multiplication_scalar(mass)
-
-        return Vector(Gravity_force,3)
-    
     def E_B_drift(self, mass,velocity, charge):
         
         Lorentz_force = self.homogenous_magnetic_force(velocity, charge)
